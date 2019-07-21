@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: address-service
-        image: 990456062402.dkr.ecr.us-east-1.amazonaws.com/address-service:latest
+        image: 118463809662.dkr.ecr.us-east-1.amazonaws.com/address-repo
         ports:
         - containerPort: 80
