@@ -9,4 +9,4 @@ spec:
     - port: 8083
   selector:
     app: address-service
-  type: LoadBalancer
+  type: NodePort
