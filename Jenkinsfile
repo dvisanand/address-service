@@ -37,8 +37,10 @@ pipeline {
       steps {
          node('eks-master-node'){
           checkout scm
-         sh 'kubectl apply -f deployment.yaml' 
-         sh 'kubectl apply -f service.yaml' 
+          withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-creds', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+             sh 'kubectl apply -f deployment.yaml' 
+             sh 'kubectl apply -f service.yaml' 
+          }
         }
       }
   } 
